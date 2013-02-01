@@ -9,21 +9,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-@Controller
-@RequestMapping("/welcome")
+@Controller //le dice a spring que se trata de una clase controladora
+@RequestMapping("/welcome") //indica la ruta que llama al controlador
 public class HelloController {
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET) //este metodo se dispara cuando se hace un get sobre miaplicacion/welcome
 	public String printWelcome(ModelMap model) {
-
-		model.addAttribute("message", "Spring 3 MVC Hello World");
-		return "hello";
-
+		return "hello"; 
+// el return es del nombre de alguna pagina que tengamos creada, en mi caso tengo un hello.jsp
 	}
-                @RequestMapping(method = RequestMethod.POST)
+        
+                @RequestMapping(method = RequestMethod.POST)//este metodo se dispara cuando se hace un post sobre miaplicacion/welcome
 	public String recibirPost(@ModelAttribute("soldado") Soldado soldado, ModelMap model ) {
             
-		model.addAttribute("soldado", soldado);
+		model.addAttribute("soldado", soldado); //se le pasa a la vista el objeto soldado
 		return "hola";
 
 	}
