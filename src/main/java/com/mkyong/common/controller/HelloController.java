@@ -21,9 +21,9 @@ public class HelloController {
 
 	}
                 @RequestMapping(method = RequestMethod.POST)
-	public String recibirPost(@ModelAttribute("objetoDeDominio") ObjetoDeDominio objetoDeDominio, ModelMap model ) {
+	public String recibirPost(@ModelAttribute("soldado") Soldado soldado, ModelMap model ) {
             
-		model.addAttribute("message", objetoDeDominio.getTitulo());
+		model.addAttribute("soldado", soldado);
 		return "hola";
 
 	}
